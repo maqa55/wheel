@@ -1,0 +1,238 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap");
+:where(.ui-wheel-of-fortune) {
+  --_items: 12;
+  all: unset;
+  aspect-ratio: 1/1;
+  container-type: inline-size;
+  direction: ltr;
+  display: grid;
+  position: relative;
+  width: 100%;
+}
+:where(.ui-wheel-of-fortune)::after {
+  aspect-ratio: 1/0.8660254038;
+  background-color: crimson;
+  -webkit-clip-path: polygon(50% 100%, 100% 0, 0 0);
+          clip-path: polygon(50% 100%, 100% 0, 0 0);
+  content: "";
+  height: 4cqi;
+  position: absolute;
+  place-self: start center;
+  scale: 1.4;
+}
+:where(.ui-wheel-of-fortune) > * {
+  position: absolute;
+}
+:where(.ui-wheel-of-fortune) button {
+  aspect-ratio: 1/1;
+  background: hsla(0, 0%, 100%, 0.8);
+  border: 0;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 5cqi;
+  place-self: center;
+  width: 20cqi;
+}
+:where(.ui-wheel-of-fortune) ul {
+  all: unset;
+  -webkit-clip-path: inset(0 0 0 0 round 50%);
+          clip-path: inset(0 0 0 0 round 50%);
+  display: grid;
+  inset: 0;
+  place-content: center start;
+}
+:where(.ui-wheel-of-fortune) ul li {
+  align-content: center;
+  aspect-ratio: 1/calc(2 * tan(180deg / var(--_items)));
+  background: hsl(calc(360deg / var(--_items) * (var(--_idx))), 100%, 75%);
+  -webkit-clip-path: polygon(0% 0%, 100% 50%, 0% 100%);
+          clip-path: polygon(0% 0%, 100% 50%, 0% 100%);
+  display: grid;
+  font-size: 5cqi;
+  grid-area: 1/-1;
+  padding-left: 1ch;
+  rotate: calc(360deg / var(--_items) * (var(--_idx) - 1));
+  transform-origin: center right;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+  width: 50cqi;
+}
+:where(.ui-wheel-of-fortune) ul li:nth-of-type(1) {
+  --_idx: 1;
+}
+:where(.ui-wheel-of-fortune) ul li:nth-of-type(2) {
+  --_idx: 2;
+}
+:where(.ui-wheel-of-fortune) ul li:nth-of-type(3) {
+  --_idx: 3;
+}
+:where(.ui-wheel-of-fortune) ul li:nth-of-type(4) {
+  --_idx: 4;
+}
+:where(.ui-wheel-of-fortune) ul li:nth-of-type(5) {
+  --_idx: 5;
+}
+:where(.ui-wheel-of-fortune) ul li:nth-of-type(6) {
+  --_idx: 6;
+}
+:where(.ui-wheel-of-fortune) ul li:nth-of-type(7) {
+  --_idx: 7;
+}
+:where(.ui-wheel-of-fortune) ul li:nth-of-type(8) {
+  --_idx: 8;
+}
+:where(.ui-wheel-of-fortune) ul li:nth-of-type(9) {
+  --_idx: 9;
+}
+:where(.ui-wheel-of-fortune) ul li:nth-of-type(10) {
+  --_idx: 10;
+}
+:where(.ui-wheel-of-fortune) ul li:nth-of-type(11) {
+  --_idx: 11;
+}
+:where(.ui-wheel-of-fortune) ul li:nth-of-type(12) {
+  --_idx: 12;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: system-ui, sans-serif;
+  padding: 5cqi;
+}
+
+.spinn {
+  position: relative;
+  top: 0;
+  width: 40%;
+  height: 40%;
+  margin: auto;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  display: grid;
+  place-items: center;
+  margin: 0;
+  background: linear-gradient(135deg, #c3a3f1, #6414e9);
+  height: 100vh;
+  overflow-x: hidden;
+}
+
+#spin_the_wheel {
+  display: inline-block;
+  position: relative;
+  overflow: hidden;
+}
+#spin_the_wheel #wheel {
+  margin-top: 30px;
+  height: 90vh;
+  width: 90vh;
+}
+
+#wheel {
+  display: block;
+}
+
+#spin {
+  font: 1.5em/0 "Lato", sans-serif;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 30%;
+  height: 30%;
+  margin: -15%;
+  background: #fff;
+  color: #fff;
+  box-shadow: 0 0 0 8px currentColor, 0 0px 15px 5px rgba(0, 0, 0, 0.6);
+  border-radius: 50%;
+  transition: 0.8s;
+}
+
+#spin::after {
+  content: "";
+  position: absolute;
+  top: -17px;
+  border: 10px solid transparent;
+  border-bottom-color: currentColor;
+  border-top: none;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  flex-basis: 100%;
+  flex: 1;
+}
+
+.spiner {
+  width: 50%;
+  height: 50%;
+  margin: auto;
+}
+
+text {
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 11px;
+  pointer-events: none;
+}
+
+#chart {
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  top: 0;
+  left: 0;
+}
+
+#question {
+  position: absolute;
+  width: 400px;
+  height: 500px;
+  top: 0;
+  left: 520px;
+}
+
+#question h1 {
+  font-size: 50px;
+  font-weight: bold;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  position: absolute;
+  padding: 0;
+  margin: 0;
+  top: 50%;
+  transform: translate(0, -50%);
+}
+
+.spn {
+  width: 50%;
+  height: 50%;
+  margin: auto;
+}
+.spn #chart {
+  position: relative;
+  top: 0%;
+}/*# sourceMappingURL=whell.css.map */
